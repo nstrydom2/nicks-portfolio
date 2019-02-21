@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <head> 
+    <meta charset="utf-8" />  
+    <!-- Change for better search engine indexing -->  
+    <title>Nicholas B. Strydom</title>  
+    <meta name="title" content="Web site" />  
+    <meta name="description" content="Your Web site description here" />  
+    <meta name="keywords" content="Your Web site keywords here" />  
+    <meta name="subject" content="Your Web Site subject here" />  
+    <meta name="copyright" content="Your company or organization" />  
+    <meta name="robots" content="All" />  
+    <meta name="abstract" content="Site description here" />  
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+      
+    <link id="theme" rel="stylesheet" type="text/css" href="../resources/static/assets/css/style.css"  th:href="@{/assets/css/style.css}" title="theme" />  
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Condensed|Droid+Sans|Droid+Sans|Droid+Sans|Droid+Sans" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    	$(document).ready(function(){
+    		$("#home").click(function(e){
+    			e.preventDefault();
+    			$.get('/', function(data) {
+    				$('#page').html(data);
+    				alert('Data was fetched.')
+    			});
+    		});
+    		
+    		$("#about").click(function(e){
+    			e.preventDefault();
+    			$.get('/about', function(data) {
+    				$('#page').html(data);
+    				alert('Data was fetched.')
+    			});
+    		});
+    		
+    		$("#resume").click(function(e){
+    			e.preventDefault();
+    			$.get('/resume', function(data) {
+    				$('#page').html(data);
+    				alert('Data was fetched.')
+    			});
+    		});
+    		
+    		$("#projects").click(function(e){
+    			e.preventDefault();
+    			$.get('/projects', function(data) {
+    				$('#page').html(data);
+    				alert('Data was fetched.')
+    			});
+    		});
+    		
+    		$("#contact").click(function(e){
+    			e.preventDefault();
+    			$.get('/about', function(data) {
+    				$('#page').html(data);
+    				alert('Data was fetched.')
+    			});
+    		});
+    	});
+    </script>
+
+    <!-- Add your custom script here --> 
+  </head>  
+  <body> 
+    <div id="wrapper"> 
+      <div class="bg"></div>  
+      <div class="row"> 
+        <div id="container-top"></div> 
+      </div>  
+      <div class="row"> 
+        <div id="container" class="pie"> 
+          <header id="header" class="pie"> 
+            <div class="bg"></div>  
+             <div id="logo"><a href="home"><img src="../resources/static/assets/images/portfolio_logo.png" th:src="@{/assets/images/portfolio_logo.png}" /></a></div>   
+             <nav> 
+              <div id="hmenu"> 
+                <ul> 
+                  <li> 
+                    <a id="home" href="/">Home</a>
+                  </li>  
+                  <li> 
+                    <a id="about" href="/about">About Me</a>
+                  </li>
+                  
+                  <li> 
+                    <a id="resume" href="/resume">Resume</a> 
+                  </li> 
+                  <li> 
+                    <a id="projects" href="/projects">Projects</a> 
+                  </li>  
+                  <li> 
+                    <a id="contact" href="/contact">Contact</a> 
+                  </li> 
+                </ul> 
+              </div> 
+            </nav>  
+            
+            <div class="clear"></div> 
+          </header>  
+          
+          
+          
+          <!-- Template part -->
+          <div id="page" class="home"> 
+            <div id="main"> 
+              <section class="home"> 
+                <div class="wrapper"> 
+                  <h1 th:text="${title}"> Title </h1>  
+                  <p th:text="${body}">  [BODY] </p>
+                  <!-- TO REMOVE -->  
+                </div> 
+                <div th:insert="https://www.thymeleaf.org :: section.description" >...</div>
+              </section>
+          </div>  
+          
+          
+          <footer id="footer" class="pie"> 
+            <div class="bg"></div>  
+
+          </footer> 
+        </div> 
+      </div>  
+      <div class="row"> 
+        <div id="container-bottom"></div> 
+      </div> 
+    </div> 
+    </div>
+     <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>-->
+  </body> 
+</html>
